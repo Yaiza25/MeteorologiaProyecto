@@ -1,0 +1,29 @@
+{
+  "name": "proyecto2",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1",
+    "parcel": "^2.0.1"
+  },
+  "scripts": {
+    "prebuild": "test -d dist || mkdir dist && cp -rv images dist",
+    "build": "parcel build *.html",
+    "prestart": "yarn prebuild",
+    "start": "parcel serve *.html --open"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "leaflet": "^1.7.1",
+    "sass": "^1.45.1",
+    "yarn": "^1.22.17"
+  },
+  "alias": {
+    "leaflet": {
+      "global": "L"
+    },
+    "bootstrap": {
+      "global": "bootstrap"
+    }
+  }
+}

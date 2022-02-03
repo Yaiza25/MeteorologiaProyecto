@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temps</title>
+    <link rel="icon" href="images/logoWeb.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css"
+        integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/main.sass">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+        integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-brand" id="marca">
+                    <img src="images/logo.png" alt="logo de la empresa" width="38" height="28" class="d-inline-block align-text-top">
+                    Temps
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#top">Mapa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#marcadorTiempo">Paneles meteorológicos</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav navbar-right">
+                        <li class="nav-item" id="avatar">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <p class="pIntroduccion" id="initWeb">
+            En el siguiente mapa se muestran las balizas meteorológicas de Euskadi. Si desea ver el tiempo de alguna de
+            ellas, deberá pulsar la baliza correspondiente. Tras eso, se mostrará en la sección de abajo la baliza o
+            balizas que has seleccionado en el mapa. Si desea eliminar alguna de las balizas del panel meteorológico,
+            tendrá que pulsar de nuevo la baliza en el mapa.
+        </p>
+
+        <div id="map"></div>
+
+        <label id="marcadorTiempo"></label>
+
+        <h1 id="tituloPaneles">Paneles meteorológicos</h1>
+
+        <hr>
+
+        <p class="pIntroduccion">
+            En esta sección, se muestran los paneles meteorológicos que se han seleccionado. En el caso de que se desee
+            ver mas datos sobre un municipio, se deberá arrastrar la opción (situada abajo) hacia el panel
+            correspondiente. Si en un futuro se quiere quitar esa opción del panel, se tendrá que arrastrar desde el
+            panel hasta contenedor (situado en la esquina derecha inferior).
+        </p>
+
+        <div id="opciones" class="m-auto d-flex justify-content-around flex-wrap">
+            <div class="elemento" id="viento">
+                <img src="images/viento.png" alt="Logo de la velocidad del viento" width="35" height="35">
+                <p>Velocidad del viento</p>
+            </div>
+
+            <div class="elemento" id="precipitacion">
+                <img src="images/precipitacion.png" alt="Logo de la velocidad del viento" width="35" height="35">
+                <p>Precipitación acumulada</p>
+            </div>
+
+            <div class="elemento" id="direccion">
+                <img src="images/direccion.png" alt="Logo de la velocidad del viento" width="35" height="35">
+                <p>Dirección del viento</p>
+            </div>
+        </div>
+
+        <div id="paneles"></div>
+
+    </main>
+
+    <div id="basurero" class="fixed-bottom">
+        <img src="images/basura.png" alt="Basura de opciones del tiempo" width="90" height="90" id="borrador">
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
+        integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"
+        integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="scripts/main.js" type="module"></script>
+</body>
+
+</html>

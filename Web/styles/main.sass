@@ -1,0 +1,144 @@
+// Import
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap')
+    
+// General
+
+*
+    box-sizing: none !important
+    margin: 0
+    
+body
+    margin: 2rem
+    background-color: #F1F1F2 !important
+    
+    font-family: 'PT Sans', sans-serif !important
+
+// Header
+$body-color: #1995AD
+
+header
+    margin-bottom: 5.5rem
+
+    nav
+        background-color: #1995AD !important
+
+        #marca
+            margin-top: -1px
+
+// Main
+
+main 
+    margin-bottom: 6.5rem
+
+    .pIntroduccion
+        width: 90%
+        margin: 2rem auto
+        text-align: center
+
+    // Mapa        
+
+    #map
+        margin: auto
+        width: 85%
+        height: 400px
+        box-shadow: 5px 5px 5px #888
+
+    // Marcador de posicion
+
+    #marcadorTiempo
+        position: relative
+        top: -60px
+
+    // Paneles meteorologicos
+
+    h1
+        text-align: center
+        margin-top: 1rem
+
+    hr 
+        opacity: 1 !important
+        width: 15rem
+        height: 5px !important
+        border: none
+        border-radius: 50px
+        background-color: #1995AD !important
+        margin: 0.5rem auto
+
+    #opciones
+        width: 70%
+
+        .elemento
+            margin-bottom: 25px 
+            padding: 0 10px 0 0
+            cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-wrap: nowrap
+
+            p
+                margin: 0 0 0 6px !important
+
+    #paneles
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+        align-items: center
+        width: 80%
+        margin: auto
+   
+        .carta
+            width: 380px
+            border-radius: 20px
+            margin: 1rem
+            color: white
+            background-color: #1995AD
+            padding: 1rem
+
+            .descripcion
+                display: flex
+                justify-content: space-evenly
+                align-items: center
+                flex-direction: row
+                font-size: 60px
+                margin: 1.5rem 0 2rem 0
+
+            .informacion
+                display: flex
+
+                .temperatura
+                    width: 150px
+                    padding: 0 1rem 0 0
+                    display: flex
+                    align-items: center
+                    justify-content: center
+
+                    h2
+                        margin-bottom: 0 !important
+                        
+                .datos
+                    width: 100%
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    border-radius: 5px
+                    border-left: white 5px solid
+                    padding-left: 1.5rem
+                    text-align: right
+
+                    p
+                        margin-bottom: 0 !important
+                        
+
+            .elementPlus
+                cursor: pointer
+            
+// Basurero
+
+#basurero
+    margin-left: auto
+
+    img
+        float: right
+        padding: 0.7rem

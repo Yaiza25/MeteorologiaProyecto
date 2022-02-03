@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY ["DotNet.Docker.csproj", "./"]
+RUN dotnet restore "DotNet.Docker.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "DotNet.Docker.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "DotNet.Docker.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
