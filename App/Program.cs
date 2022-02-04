@@ -187,12 +187,13 @@ namespace DotNet.Docker
             try
             {
                 var TimeNow = DateTime.Now;
-                var Hour = $"{TimeNow.Hour}";
+                var Hour = $"{TimeNow.Hour + 1}";
                 var Year = $"{TimeNow.Year}";
                 var Day = $"{TimeNow.Day}";
                 var Month = $"{TimeNow.Month}";
 
                 if (Hour.Length == 1) Hour = $"0{TimeNow.Hour}";
+                if (Hour.Equals("00") || Hour.Equals("24")) Hour = $"0{TimeNow.Hour}:59";
                 if (Day.Length == 1) Day = $"0{TimeNow.Day}";
                 if (Month.Length == 1) Month = $"0{TimeNow.Month}";
 
