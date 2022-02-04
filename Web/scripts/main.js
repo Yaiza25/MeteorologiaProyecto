@@ -37,7 +37,7 @@ function LeerDatos() {
     $.ajax({
       type: "GET",
       dataType: "html",
-      url: 'http://10.10.17.196:8080/api/Weather',
+      url: 'http://10.10.17.196:5000/api/Weather',
       async: false, // Sincrono
       headers: {
         "accept": "application/json",
@@ -338,7 +338,7 @@ function LeerDatos() {
             }
           });
 
-          setTimeout(LeerDatos, 300000); // Lanza la lectura de datos, despues de 1 minuto
+          setTimeout(LeerDatos, 300000); // Lanza la lectura de datos, despues de 5 minutos
         });
       },
       error: function (response, status) {
@@ -360,7 +360,7 @@ function GetToken() {
     $.ajax({
       type: "POST",
       dataType: "html",
-      url: `http://10.10.17.196:8080/api/Users/authenticate/username/yaiza/password/1234`,
+      url: `http://10.10.17.196:5000/api/Users/authenticate/username/yaiza/password/1234`,
       async: false,
       headers: {
         "accept": "application/json",
@@ -370,7 +370,7 @@ function GetToken() {
       },
       success: function (response) {
         var aUser = JSON.parse(response);
-        localStorage.Token = JSON.stringify(aUser.token); // Guardar los cambios en el localStorage
+        localStorage.Token = JSON.stringify(aUser.token); // Guardar el token en el localStorage
       },
       error: function (response, status) {
         console.log("error");

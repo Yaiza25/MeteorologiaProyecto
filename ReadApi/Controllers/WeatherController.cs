@@ -21,6 +21,7 @@ namespace ReadApi.Controllers
         }
 
         // GET: api/Weather
+        // Obtener todo la informacion
         [Autohorrize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Weather>>> GetWeather()
@@ -29,6 +30,7 @@ namespace ReadApi.Controllers
         }
 
         // GET: api/Weather/5
+        // Obtener la informacion de un id en especifico
         [Autohorrize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Weather>> GetWeather(int id)
@@ -44,6 +46,7 @@ namespace ReadApi.Controllers
         }
 
         // GET: api/Weather/Location
+        // Obtener todo la informacion local
         [Autohorrize]
         [HttpGet("Location")]
         public ActionResult GetLocationWeather()
@@ -65,6 +68,7 @@ namespace ReadApi.Controllers
         }
 
         // GET: api/Weather/Location/5 
+        // Obtener todo la informacion local de un id en especifico
         [Autohorrize]
         [HttpGet("Location/{id}")]
         public ActionResult GetLocationWeather(int id)
@@ -86,6 +90,7 @@ namespace ReadApi.Controllers
         }
 
         // GET: api/Weather/Statistics
+        // Obtener todo la informacion meteorologica
         [Autohorrize]
         [HttpGet("Statistics")]
         public ActionResult GetStatisticsWeather()
@@ -109,7 +114,8 @@ namespace ReadApi.Controllers
             return Ok(weather);
         }
 
-        // GET: api/Weather/Location/5
+        // GET: api/Weather/Statistics/5
+        // Obtener todo la informacion meteorologica de un id en especifico
         [Autohorrize]
         [HttpGet("Statistics/{id}")]
         public ActionResult GetStatisticsWeather(int id)

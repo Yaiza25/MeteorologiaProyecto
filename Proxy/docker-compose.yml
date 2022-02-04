@@ -13,5 +13,5 @@ services:
         build: .
         image: readapi:1.0
         ports:
-            - 8080:5000
+            - 5000:5000
         restart: always

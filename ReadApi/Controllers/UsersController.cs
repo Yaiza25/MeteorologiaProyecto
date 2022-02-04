@@ -16,6 +16,8 @@ namespace ReadApi.Controllers
             _userService = userService;
         }
 
+        // POST: api/Users/authenticate/username/yaiza/password/1234
+        // Obtener informacion de un usuario en especifico
         [AllowAnonymous]
         [HttpPost("authenticate/username/{username}/password/{password}")]
         public IActionResult Authenticate(string username, string password)
@@ -28,6 +30,8 @@ namespace ReadApi.Controllers
             return Ok(response);
         }
 
+        // GET: api/Users
+        // Obtener la informacion general de todos los usuarios
         [Autohorrize] //<-- Error Atrrrributrrro
         [HttpGet]
         public IActionResult GetAll()
